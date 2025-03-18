@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/Player/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Player/GunPoint.tscn" type="PackedScene" id=2]
+
+[node name="Main" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 485, 215 )
+
+[node name="GunPoint" parent="Player" instance=ExtResource( 2 )]
+position = Vector2( 0, -71 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
