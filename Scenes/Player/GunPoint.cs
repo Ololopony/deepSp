@@ -8,9 +8,7 @@ public class GunPoint : Node2D
     private int speed = 800;
     [Export]
     private int fireRate = 500;
-
     private bool canFire = true;
-
     private PackedScene bulletScene = GD.Load<PackedScene>("res://Scenes/Player/Bullet.tscn");
 
     public override void _Process(float delta)

@@ -4,16 +4,8 @@ using System;
 public class Player : Area2D
 {
     [Export]
-    private int speed { get; set; } = 400; // How fast the player will move (pixels/sec).
-
-    private Vector2 screenSize; // Size of the game window.
-
-    private Vector2 velocity; // The player's movement vector.
-
-    public override void _Ready()
-    {
-        screenSize = GetViewportRect().Size;
-    }
+    private int speed = 400;
+    private Vector2 velocity;
 
     public override void _Process(float delta)
     {
@@ -35,9 +27,6 @@ public class Player : Area2D
         }
 
         Position += velocity * (float)delta;
-        Position = new Vector2(
-            x: Mathf.Clamp(Position.x, 0, screenSize.x),
-            Position.y
-        );
+        Position = new Vector2(Position.x, Position.y);
     }
 }
