@@ -1,19 +1,38 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scenes/Player/Player.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Scenes/Player/GunPoint.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Controllers/ShootingController.cs" type="Script" id=3]
+[ext_resource path="res://Scenes/Controllers/MovingComtroller.cs" type="Script" id=4]
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( -23.5459, -0.271092, 23.5459, 0.271092, 577.873, 87.5163, -38.8793, -28.7831, 38.8793, 28.7831, 668.525, 125.618, -6.94164, -49.4296, 6.94164, 49.4296, 721.59, 213.369, 19.0091, -47.9554, -19.0091, 47.9554, 714.957, 341.53, 32.3022, -14.8305, -32.3022, 14.8305, 648.626, 418.889, 35.6762, 11.8921, -35.6762, -11.8921, 490.538, 417.734, 20.2329, 40.0694, -20.2329, -40.0694, 414, 347, -15.3315, 22.5576, 15.3315, -22.5576, 414.258, 189.122, -17.0625, 12.7288, 17.0625, -12.7288, 477.272, 116.382, -29.6351, -2.43558, 29.6351, 2.43558, 576.768, 87.5163 )
+}
 
 [node name="Main" type="Node2D"]
 
-[node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 550, 285 )
-
-[node name="GunPoint" parent="Player" instance=ExtResource( 2 )]
-position = Vector2( 0, -71 )
-script = null
-
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="MovingComtroller" type="Node2D" parent="."]
+script = ExtResource( 4 )
+speed = 5
 
 [node name="ShootingController" type="Node2D" parent="."]
 script = ExtResource( 3 )
+
+[node name="Path2D" type="Path2D" parent="."]
+position = Vector2( 37.2795, 56.2026 )
+scale = Vector2( 0.904559, 0.866094 )
+curve = SubResource( 1 )
+
+[node name="PathFollowForPlayer" type="PathFollow2D" parent="Path2D"]
+unique_name_in_owner = true
+position = Vector2( 722.903, 222.67 )
+rotation = 1.43124
+offset = 216.47
+
+[node name="Player" parent="Path2D/PathFollowForPlayer" instance=ExtResource( 1 )]
+position = Vector2( 0, -60 )
+
+[node name="GunPoint" type="Node2D" parent="Path2D/PathFollowForPlayer/Player"]
+unique_name_in_owner = true

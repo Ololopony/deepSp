@@ -14,7 +14,7 @@ public class ShootingController : Node2D
 
     public override void _Ready() 
     {
-        gun = GetNode<Node2D>("../Player/GunPoint");
+        gun = GetNode<Node2D>("%GunPoint");
     }
 
     public override void _Process(float delta) 
