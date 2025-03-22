@@ -3,7 +3,7 @@
 [ext_resource path="res://Scenes/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Enemy/Dummy.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Controllers/ShootingController.cs" type="Script" id=3]
-[ext_resource path="res://Scenes/Controllers/MovingComtroller.cs" type="Script" id=4]
+[ext_resource path="res://Scenes/Controllers/MovingController.cs" type="Script" id=4]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
@@ -16,11 +16,9 @@ _data = {
 
 [node name="MovingComtroller" type="Node2D" parent="."]
 script = ExtResource( 4 )
-speed = 2
 
 [node name="ShootingController" type="Node2D" parent="."]
 script = ExtResource( 3 )
-damage = 10
 
 [node name="Path2D" type="Path2D" parent="."]
 position = Vector2( 37.2795, 56.2026 )

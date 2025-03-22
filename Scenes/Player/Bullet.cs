@@ -3,7 +3,7 @@ using System;
 
 public class Bullet : RigidBody2D
 {
-    public int Damage { get; set; }
+    public int Damage {get; set;}
 
     private void OnBulletBodyEntered(Node body)
     {
