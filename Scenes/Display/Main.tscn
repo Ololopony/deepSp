@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scenes/Player/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Enemy/Dummy.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Controllers/ShootingController.cs" type="Script" id=3]
 [ext_resource path="res://Scenes/Controllers/MovingComtroller.cs" type="Script" id=4]
 
@@ -15,7 +16,7 @@ _data = {
 
 [node name="MovingComtroller" type="Node2D" parent="."]
 script = ExtResource( 4 )
-speed = 5
+speed = 2
 
 [node name="ShootingController" type="Node2D" parent="."]
 script = ExtResource( 3 )
@@ -27,12 +28,15 @@ curve = SubResource( 1 )
 
 [node name="PathFollowForPlayer" type="PathFollow2D" parent="Path2D"]
 unique_name_in_owner = true
-position = Vector2( 722.903, 222.67 )
-rotation = 1.43124
-offset = 216.47
+position = Vector2( 401.049, 283.376 )
+rotation = -1.61014
+offset = 775.69
 
 [node name="Player" parent="Path2D/PathFollowForPlayer" instance=ExtResource( 1 )]
 position = Vector2( 0, -60 )
 
 [node name="GunPoint" type="Node2D" parent="Path2D/PathFollowForPlayer/Player"]
 unique_name_in_owner = true
+
+[node name="Dummy" parent="." instance=ExtResource( 2 )]
+position = Vector2( 141, 300 )
