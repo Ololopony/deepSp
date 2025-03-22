@@ -3,11 +3,13 @@ using System;
 
 public class Bullet : RigidBody2D
 {
+    public int Damage { get; set; }
+
     private void OnBulletBodyEntered(Node body)
     {
         if (body.HasMethod("HandleHit"))
         {
-            body.Call("HandleHit");
+            body.Call("HandleHit", Damage);
         }
         QueueFree();
     }

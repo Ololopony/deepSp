@@ -20,6 +20,7 @@ speed = 2
 
 [node name="ShootingController" type="Node2D" parent="."]
 script = ExtResource( 3 )
+damage = 10
 
 [node name="Path2D" type="Path2D" parent="."]
 position = Vector2( 37.2795, 56.2026 )

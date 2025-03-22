@@ -5,10 +5,10 @@ public class Dummy : KinematicBody2D
 {
     private int health = 100;
 
-    public void HandleHit()
+    public void HandleHit(int damage)
     {
         GD.Print("Was hit");
-        health -= 10;
+        health -= damage;
         if (health > 0)
         {
             GD.Print(health);
