@@ -5,6 +5,10 @@ public class Bullet : RigidBody2D
 {
     private void OnBulletBodyEntered(Node body)
     {
+        if (body.HasMethod("HandleHit"))
+        {
+            body.Call("HandleHit");
+        }
         QueueFree();
     }
 
